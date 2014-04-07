@@ -1,3 +1,5 @@
+//This file parses keystrokes into booleans to be used in the main program
+
 var KeyPressed=
 {
 	Backspace:false,
