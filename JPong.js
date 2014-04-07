@@ -191,7 +191,7 @@ var Score={
 	}
 };*/
 
-var currentFile="";
+/*var currentFile="";
 function Sound(){
 	if (window.HTMLAudioElement){
 		try {
@@ -220,7 +220,7 @@ function Sound(){
              if(window.console && console.error("Error:" + e));
         }
 	}
-};
+}; */
 
 function Tick(){
 	ctx.clearRect(0, 0, 500, 500);
