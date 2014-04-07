@@ -250,7 +250,7 @@ PlayerPaddle.testmode=false;
 OpponentPaddle.testmode=false;
 Score.testmode=false;
 OpponentPaddle.predict();
-playbtn.onclick=sound();
+//playbtn.onclick=sound();
 //Menu.Screen=start;
 window.setInterval(Tick, 1000/FPS);
 
