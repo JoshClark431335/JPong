@@ -9,8 +9,27 @@
 		
 	</head>
 	<body>
-		<audio id="SFX"> audio not supported </audio>
-		<button id="playbtn" accesskey="Space">Play</button>
+		
+		
+		<!--LOADS THE AUDIO FILES. PRELOADS IT AND PREPARES IT TO PLAY WHEN NEEDED-->
+		<audio preload="true" id="blop">
+			<source src="Blop.wav">
+				
+			</source>
+			<source src="Blop.mp3">
+				
+			</source>
+			
+		</audio>
+		<audio preload="true" id="tick">
+			<source src="Tick.wav">
+				
+			</source>
+			<source  src="Tick.mp3">
+				
+			</source>
+
+		</audio>
 		<canvas id="canvas" height="500" width="500" style="border:1px solid black">
 			Your browser does not support canvas element.
 		</canvas>

@@ -4,6 +4,12 @@ ctx.font="20px Arial";
 var FPS = 60;
 var Mode =0;
 
+/*
+ * Assigns the audio files to variables bounce1 and 2
+ */
+var bounce1 = document.getElementById("blop");
+var bounce2 = document.getElementById("tick");
+
 
 var Ball={
 	x:250.0,
@@ -50,6 +56,9 @@ var Ball={
 				else if (this.x>495)
 					this.x=495-(this.x-495);
 				this.Direction=180-this.Direction;
+				bounce2.pause();
+				bounce2.currentTime = 0;
+				bounce2.play();
 			}
 			this.sidebounce=true;
 		}
@@ -65,6 +74,9 @@ var Ball={
 					if (this.y>485)
 						this.y=485-(this.y-485);
 					this.Direction=360-this.Direction;
+					bounce1.pause();
+					bounce1.currentTime = 0;
+					bounce1.play();
 					OpponentPaddle.predict();
 				}
 				this.paddlebounce=true;
@@ -77,6 +89,9 @@ var Ball={
 					if (this.y<10)
 						this.y=10+(10-this.y);
 					this.Direction=360-this.Direction;
+					bounce1.pause();
+					bounce1.currentTime = 0;
+					bounce1.play();
 				this.paddlebounce=true;
 			}
 		}
@@ -191,36 +206,10 @@ var Score={
 	}
 };*/
 
-/*var currentFile="";
-function Sound(){
-	if (window.HTMLAudioElement){
-		try {
-			var oAudio = document.getElementById('SFX');
-            var btn = document.getElementById('playbtn'); 
-            var audioURL = document.getElementById('Blop.mp3'); 
 
-            //Skip loading if current file hasn't changed.
-            if (audioURL.value !== currentFile) {
-                oAudio.src = audioURL.value;
-                currentFile = audioURL.value;                       
-            }
 
-            // Tests the paused attribute and set state. 
-            if (!oAudio.paused) {
-                oAudio.play();
-                btn.textContent = "Pause";
-            }
-            else {
-                oAudio.pause();
-                btn.textContent = "Play";
-            }
-        }
-        catch (e) {
-            // Fail silently but show in F12 developer tools console
-             if(window.console && console.error("Error:" + e));
-        }
-	}
-}; */
+
+
 
 function Tick(){
 	ctx.clearRect(0, 0, 500, 500);
