@@ -1,17 +1,45 @@
 <!DOCTYPE html>
+
 <html>
 	<head>
+		
 		<title>
 			JPong
 		</title>
+		<meta name="description" content="Re-make of the classic pong game">
+		<meta name="author" content="HMG">
 		
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 		
-		
+		<!-- Cascading Stylesheet -->
+		<link type="text/css" rel="stylesheet" href="JPong.css">
+			
 	</head>
+	
 	<body>
+		<div class="header">
+			<h1>JPong</h1>
+			<h2>Developed by Josh and the HMG team.</h2>
+		</div>
+
+		<!-- DRAWS THE CANVAS -->
+		<div class="canvas">
+			<canvas id="canvas" height="500" width="500" style="border:1px solid black">
+				Your browser does not support canvas element.
+			</canvas>
+		</div>
 		
+		<div class="instructions">
+			<p>Beat the computer by hitting the ball with your paddle. Use the arrow keys to move left and right. Don't let the ball through!</p>
+		</div>
 		
-		<!--LOADS THE AUDIO FILES. PRELOADS IT AND PREPARES IT TO PLAY WHEN NEEDED-->
+		<div class="footer">
+			<p>Opensource HMG 2014</p>
+		</div>
+		
+		<!--Calls the audio files-->
 		<audio id="blop">
 			<source src="Blop.wav"> </source>
 			<source src="Blop.mp3"> </source>
@@ -22,15 +50,10 @@
 			<source  src="Tick.mp3"> </source>
 		</audio>
 		
-		<!-- DRAWS THE CANVAS -->
-		<canvas id="canvas" height="500" width="500" style="border:1px solid black">
-			Your browser does not support canvas element.
-		</canvas>
-		
 		<!--Runs Javascript files-->
 		<script type="text/javascript" src="Keycodes.js"></script>
 		<script type="text/javascript" src="JPong.js"> </script>
+				
 	</body>
-	
 	
 </html>
