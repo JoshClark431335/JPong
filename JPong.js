@@ -16,7 +16,7 @@ function randNum( min, max ) {
     return Math.random() * ( max - min ) + min;
 }
 
-var particleNumber = 6;
+var particleNumber = 10;
 var particle = [];
 
 
@@ -49,12 +49,12 @@ var createParticle = function(){			//Create a particle affect (used when ball co
 	
 var particleDraw = function(){				//draw and updating particles
 	for (var i=0; i<particleNumber ; i++){
-		var parti = particle[i];
-		ctx.beginPath();
-		ctx.arc(parti.x, parti.y, parti.radius, 0, 2*Math.PI);
-		ctx.fillStyle = "black";
-		ctx.fill();
-		if (parti.radius>0.2){
+		if (particle[i].radius>0){
+			var parti = particle[i];
+			ctx.beginPath();
+			ctx.arc(parti.x, parti.y, parti.radius, 0, 2*Math.PI);
+			ctx.fillStyle = "black";
+			ctx.fill();
 			parti.vx = parti.vx*0.98;
 			parti.vy = parti.vy*0.98;	
 			parti.x += parti.vx;
