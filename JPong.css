@@ -1,5 +1,5 @@
 body{
-	background-color: #DDDDFF;
+	background-color: #AAAAFF;
 }
 
 h1{
@@ -10,7 +10,7 @@ h1{
 
 h2{
 	font-size: 1.3em;
-	font-family: script, cursive;
+	font-family: sans-serif;
 	color: black;
 	text-decoration:none;
 }
@@ -20,10 +20,18 @@ p{
 	font-family:Times, serif;
 }
 
+span{
+	font-family: script;
+}
+
 .header{
 	text-align: center;
-	background-color: silver;
+	background: -webkit-linear-gradient(#EEEEEE, #AAAAAA); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#EEEEEE, #AAAAAA); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#EEEEEE, #AAAAAA); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#EEEEEE, #AAAAAA); /* Standard syntax */
 	display: block;
+	border-radius: 5px;
 }
 
 .canvas{
@@ -32,6 +40,7 @@ p{
 	text-align: center;
 	display: inline-block;
 	float: left;
+	box-shadow: 0px 0px 4px;
 }
 
 .instructions{
@@ -43,6 +52,7 @@ p{
 	margin-left: 5px;
 	padding: 2px;
 	float: left;
+	box-shadow: 0px 0px 4px;
 }
 
 .footer{

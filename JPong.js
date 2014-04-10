@@ -11,6 +11,61 @@ var bounce1 = document.getElementById("blop");
 var bounce2 = document.getElementById("tick");
 
 
+/* Start Particle Engine*/
+function randNum( min, max ) {
+    return Math.random() * ( max - min ) + min;
+}
+
+var particleNumber = 6;
+var particle = [];
+
+
+for (var i=0; i<particleNumber; i++){		//define object and populates it with values (to keep game from crashing)
+	particle[i] ={
+		x: 0,
+		y: 0,
+		vx: 0,
+		vy: 0,
+		radius: 0.5,
+	};
+};
+
+
+
+var createParticle = function(){			//Create a particle affect (used when ball collides with wall)
+	for (var i=0; i<particleNumber; i++){
+		particle[i].radius = 1.0 ;
+		particle[i].x = Ball.x;
+		particle[i].y = Ball.y;
+		particle[i].vx = randNum(0.2,1);
+		particle[i].vy = randNum(-1,1);
+		
+		if (Ball.x >10)	{
+			particle[i].vx = randNum(-1,-0.2);
+			particle[i].x = Ball.x+5.5;
+		}	
+	}
+};
+	
+var particleDraw = function(){				//draw and updating particles
+	for (var i=0; i<particleNumber ; i++){
+		var parti = particle[i];
+		ctx.beginPath();
+		ctx.arc(parti.x, parti.y, parti.radius, 0, 2*Math.PI);
+		ctx.fillStyle = "black";
+		ctx.fill();
+		if (parti.radius>0.2){
+			parti.vx = parti.vx*0.98;
+			parti.vy = parti.vy*0.98;	
+			parti.x += parti.vx;
+			parti.y += parti.vy;
+			parti.radius -= 0.01;
+		}
+	}
+};
+
+//End Particle Engine
+
 var Ball={
 	x:250.0,
 	y:250.0,
@@ -22,6 +77,7 @@ var Ball={
 		//draws box that will represent the ball
 		ctx.fillStyle = "green";
 		ctx.fillRect (this.x, this.y, 5, 5);
+
 	},
 	reset: function(){
 		//resets ball position
@@ -59,6 +115,7 @@ var Ball={
 				bounce2.pause();
 				bounce2.currentTime = 0;
 				bounce2.play();
+				createParticle();
 			}
 			this.sidebounce=true;
 		}
@@ -213,10 +270,15 @@ var Score={
 
 function Tick(){
 	ctx.clearRect(0, 0, 500, 500);
+	particleDraw();
 	Ball.draw();
 	PlayerPaddle.draw();
 	OpponentPaddle.draw();
 	Score.draw();
+	
+	
+	
+	
 	if (KeyPressed.Space)
 		Sound();
 	//Menu.display;
